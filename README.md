@@ -1,2 +1,2 @@
 # anticheese
-Optimus Prime's anticheat based on antichees
+Optimus Prime's anticheat based on anticheese

@@ -45,11 +45,12 @@ violations = {}
 
 recentExplosions = {}
 
-AddEventHandler('anticheese:yoink', function()
+--below function is a work in progress
+--AddEventHandler('anticheese:yoink', function()
 	--if(Users[source])then
 		--Users[source] = nil
 	--end
-end)
+--end)
 
 RegisterServerEvent("anticheese:timer")
 AddEventHandler("anticheese:timer", function()
@@ -289,8 +290,8 @@ end)
 local verFile = LoadResourceFile(GetCurrentResourceName(), "version.json")
 local curVersion = json.decode(verFile).version
 Citizen.CreateThread( function()
-	local updatePath = "/Blumlaut/anticheese-anticheat"
-	local resourceName = "AntiCheese ("..GetCurrentResourceName()..")"
+	local updatePath = "/totallynotadev/anticheese"
+	local resourceName = "AntiCheese Code200: ("..GetCurrentResourceName()..")"
 	PerformHttpRequest("https://raw.githubusercontent.com"..updatePath.."/master/version.json", function(err, response, headers)
 		local data = json.decode(response)
 
@@ -301,9 +302,13 @@ Citizen.CreateThread( function()
 			print("\nUpdate Changelog:\n"..data.changelog)
 			print("\n--------------------------------------------------------------------------")
 		elseif tonumber(curVersion) > tonumber(data.version) then
-			print("Your version of "..resourceName.." seems to be higher than the current version.")
+			print("Your version of "..resourceName.." seems to be higher than the current version, please downgrade you leet :smile:.")
 		else
-			print(resourceName.." is up to date!")
+			print("\n--------------------------------------------------------------------------")
+			print("\n"..resourceName.." is up to date!\nCurrent Version: "..data.version.."\nYour Version: "..curVersion.."\n")
+			print("\nUpdate Changelog:\n"..data.changelog)
+			print("\nDeveloper Notes:\n"..data.dev_notes)
+			print("\n--------------------------------------------------------------------------")
 		end
 	end, "GET", "", {version = 'this'})
 end)
