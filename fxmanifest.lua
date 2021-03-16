@@ -4,7 +4,7 @@ games { 'gta5' };
 
 author "Optimus Prime"
 
-description "All Out Roleplay's Discord Rich Presence. Developed By Optimus Prime#4164"
+description "All Out Roleplay's AntiCheat. Developed By Optimus Prime#4164"
 
 version '1.0.0'
 

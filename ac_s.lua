@@ -285,13 +285,26 @@ Citizen.CreateThread(function()
 			table.insert(recentExplosions, {sender = sender, data=ev})
 		end
 	end)
+
+	AddEventHandler('onResourceStart', function(anticheese)
+	
+		SendWebhookMessage(webhook, "AntiCheese Test Message (is running)")
+	
+	end)
+
+	AddEventHandler('playerConnecting', function()
+	
+		SendWebhookMessage(webhook, "AntiCheese Test Message player connecting (is running)")
+	
+	end)
+
 end)
 
 local verFile = LoadResourceFile(GetCurrentResourceName(), "version.json")
 local curVersion = json.decode(verFile).version
 Citizen.CreateThread( function()
 	local updatePath = "/totallynotadev/anticheese"
-	local resourceName = "AntiCheese Code200: ("..GetCurrentResourceName()..")"
+	local resourceName = "Prime's AntiCheese Code200: ("..GetCurrentResourceName()..")"
 	PerformHttpRequest("https://raw.githubusercontent.com"..updatePath.."/master/version.json", function(err, response, headers)
 		local data = json.decode(response)
 
@@ -312,3 +325,8 @@ Citizen.CreateThread( function()
 		end
 	end, "GET", "", {version = 'this'})
 end)
+
+
+
+  
+  
