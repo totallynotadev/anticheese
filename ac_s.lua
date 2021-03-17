@@ -286,18 +286,31 @@ Citizen.CreateThread(function()
 		end
 	end)
 
-	AddEventHandler('onResourceStart', function(anticheese)
+	AddEventHandler("anticheese:acconnectiongcheck", function()
 	
-		SendWebhookMessage(webhook, "AntiCheese Test Message (is running)")
-	
-	end)
-
-	AddEventHandler('playerConnecting', function()
-	
-		SendWebhookMessage(webhook, "AntiCheese Test Message player connecting (is running)")
+		SendWebhookMessage(webhook, "Prime's AntiCheese: Player is connecting and anticheat is running")
 	
 	end)
 
+	AddEventHandler("anticheese:acrunningcheck", function()
+	
+		SendWebhookMessage(webhook, "Prime's AntiCheese: Player has spawned and anticheat is running")
+	
+	end)
+
+	AddEventHandler("playerConnecting", function()
+
+		TriggerEvent("anticheese:acconnectiongcheck")
+	
+	end
+	
+	
+	AddEventHandler("playerJoining", function()
+	
+		TriggerEvent("anticheese:acrunningcheck")
+	
+	end
+	
 end)
 
 local verFile = LoadResourceFile(GetCurrentResourceName(), "version.json")
@@ -327,6 +340,5 @@ Citizen.CreateThread( function()
 end)
 
 
+  
 
-  
-  
