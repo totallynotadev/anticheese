@@ -302,14 +302,14 @@ Citizen.CreateThread(function()
 
 		TriggerEvent("anticheese:acconnectiongcheck")
 	
-	end
+	end)
 	
 	
 	AddEventHandler("playerJoining", function()
 	
 		TriggerEvent("anticheese:acrunningcheck")
 	
-	end
+	end)
 	
 end)
 
